@@ -37,7 +37,7 @@ public class GitStarParser {
 			List<GitStar> items = objectMapper.readValue(jsonRaw,
 					typeFactory.constructCollectionType(List.class, GitStar.class));
 			for (GitStar item : items) {
-				System.out.printf("URL: %s | Name: %s %n", item.getUrl(), item.getName());
+				System.out.println(item.toString());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
