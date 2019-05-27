@@ -6,8 +6,8 @@ public class GitStar {
 	private String name;
 	private String fullName;
 	private String description;
-//	private String owner;
-//	private String license;
+	private Object owner;
+	private Object license;
 	private String url;
 	private String urlApi;
 	private boolean privateRepo;
@@ -25,8 +25,16 @@ public class GitStar {
 		return id;
 	}
 
+	public Object getLicense() {
+		return license;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public Object getOwner() {
+		return owner;
 	}
 
 	public String getUrl() {
@@ -50,6 +58,7 @@ public class GitStar {
 		this.description = description;
 	}
 
+	@JsonSetter("fork")
 	public void setFork(boolean fork) {
 		this.fork = fork;
 	}
@@ -64,9 +73,19 @@ public class GitStar {
 		this.id = id;
 	}
 
+	@JsonSetter("license")
+	public void setLicense(Object license) {
+		this.license = license;
+	}
+
 	@JsonSetter("name")
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@JsonSetter("owner")
+	public void setOwner(Object owner) {
+		this.owner = owner;
 	}
 
 	@JsonSetter("private")
@@ -87,12 +106,7 @@ public class GitStar {
 	@Override
 	public String toString() {
 		return String.format(
-				"GitStar [id=%s, name=%s, fullName=%s, description=%s, url=%s, urlApi=%s, privateRepo=%s, fork=%s]", id,
-				name, fullName, description, url, urlApi, privateRepo, fork);
+				"GitStar [id=%s, name=%s, fullName=%s, description=%s, owner=%s, license=%s, url=%s, urlApi=%s, privateRepo=%s, fork=%s]",
+				id, name, fullName, description, owner, license, url, urlApi, privateRepo, fork);
 	}
-
-	/*
-	 * @JsonSetter("license") public void setLicense(String license) { this.license
-	 * = license; }
-	 */
 }
